@@ -18,6 +18,10 @@ const nextConfig = {
           protocol: url.protocol.replace(':', ''),
         }
       }),
+      {
+        protocol: 'https',
+        hostname: 'flowbite.s3.amazonaws.com',
+      },
     ],
   },
   reactStrictMode: true,
