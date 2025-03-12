@@ -65,6 +65,24 @@ export default buildConfig({
     },
   }),
   collections: [Pages, Posts, Media, Categories, Users],
+  localization: {
+    locales: [
+      {
+        code: 'en',
+        label: 'English',
+      },
+      {
+        code: 'vi',
+        label: 'Vietnamese',
+      },
+      {
+        code: 'ja',
+        label: 'Japanese',
+      },
+    ],
+    defaultLocale: 'en',
+    fallback: true,
+  },
   cors: [getServerSideURL()].filter(Boolean),
   globals: [Header, Footer],
   plugins: [
