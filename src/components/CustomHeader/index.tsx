@@ -4,8 +4,8 @@ import ThemeModeButton from '../ThemeModeButton'
 const CustomHeader = () => {
   // TODO: Làm header sticky và chuyển thành màu trắng khi màn hình bắt đầu scrolled
   return (
-    <nav className="bg-transparent px-4 lg:px-6 py-2.5">
-      <div className="container flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
+    <nav className="bg-transparent py-2.5">
+      <div className="container flex flex-wrap justify-between items-center">
         {/* LOGO */}
         <a href="https://flowbite.com" className="flex items-center">
           <Image
