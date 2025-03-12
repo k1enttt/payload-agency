@@ -190,7 +190,15 @@ export interface Page {
       | null;
     media?: (number | null) | Media;
   };
-  layout: (CallToActionBlock | ContentBlock | MediaBlock | ArchiveBlock | FormBlock | GalleryContentBlock)[];
+  layout: (
+    | CallToActionBlock
+    | ContentBlock
+    | MediaBlock
+    | ArchiveBlock
+    | FormBlock
+    | GalleryContentBlock
+    | SocialProofBlock
+  )[];
   meta?: {
     title?: string | null;
     /**
@@ -760,6 +768,18 @@ export interface GalleryContentBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "SocialProofBlock".
+ */
+export interface SocialProofBlock {
+  developerNumber?: string | null;
+  contributorNumber?: string | null;
+  organizationNumber?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'socialProof';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -1049,6 +1069,7 @@ export interface PagesSelect<T extends boolean = true> {
         archive?: T | ArchiveBlockSelect<T>;
         formBlock?: T | FormBlockSelect<T>;
         galleryContent?: T | GalleryContentBlockSelect<T>;
+        socialProof?: T | SocialProofBlockSelect<T>;
       };
   meta?:
     | T
@@ -1163,6 +1184,17 @@ export interface GalleryContentBlockSelect<T extends boolean = true> {
         media?: T;
         id?: T;
       };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "SocialProofBlock_select".
+ */
+export interface SocialProofBlockSelect<T extends boolean = true> {
+  developerNumber?: T;
+  contributorNumber?: T;
+  organizationNumber?: T;
   id?: T;
   blockName?: T;
 }
