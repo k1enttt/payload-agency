@@ -198,6 +198,7 @@ export interface Page {
     | FormBlock
     | GalleryContentBlock
     | SocialProofBlock
+    | CustomerBlock
   )[];
   meta?: {
     title?: string | null;
@@ -780,6 +781,38 @@ export interface SocialProofBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CustomerBlock".
+ */
+export interface CustomerBlock {
+  title?: string | null;
+  introduceText?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  customerList?:
+    | {
+        media: number | Media;
+        link?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'customerBlock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -1070,6 +1103,7 @@ export interface PagesSelect<T extends boolean = true> {
         formBlock?: T | FormBlockSelect<T>;
         galleryContent?: T | GalleryContentBlockSelect<T>;
         socialProof?: T | SocialProofBlockSelect<T>;
+        customerBlock?: T | CustomerBlockSelect<T>;
       };
   meta?:
     | T
@@ -1195,6 +1229,23 @@ export interface SocialProofBlockSelect<T extends boolean = true> {
   developerNumber?: T;
   contributorNumber?: T;
   organizationNumber?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CustomerBlock_select".
+ */
+export interface CustomerBlockSelect<T extends boolean = true> {
+  title?: T;
+  introduceText?: T;
+  customerList?:
+    | T
+    | {
+        media?: T;
+        link?: T;
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }

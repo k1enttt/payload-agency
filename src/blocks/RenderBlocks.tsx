@@ -9,6 +9,7 @@ import { FormBlock } from '@/blocks/Form/Component'
 import { MediaBlock } from '@/blocks/MediaBlock/Component'
 import { GalleryContentBLock } from './GalleryContent/Component'
 import { SocialProofBlock } from './SocialProof/Component'
+import { CustomerBlock } from './CustomerBlock/Component'
 
 const blockComponents = {
   archive: ArchiveBlock,
@@ -18,6 +19,7 @@ const blockComponents = {
   mediaBlock: MediaBlock,
   galleryContent: GalleryContentBLock,
   socialProof: SocialProofBlock,
+  customerBlock: CustomerBlock,
 }
 
 export const RenderBlocks: React.FC<{

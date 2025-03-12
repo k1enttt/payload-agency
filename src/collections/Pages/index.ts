@@ -22,6 +22,7 @@ import {
 } from '@payloadcms/plugin-seo/fields'
 import { GalleryContent } from '@/blocks/GalleryContent/config'
 import { SocialProof } from '@/blocks/SocialProof/config'
+import { CustomerBlock } from '@/blocks/CustomerBlock/config'
 
 export const Pages: CollectionConfig<'pages'> = {
   slug: 'pages',
@@ -85,6 +86,7 @@ export const Pages: CollectionConfig<'pages'> = {
                 FormBlock,
                 GalleryContent,
                 SocialProof,
+                CustomerBlock,
               ],
               required: true,
               admin: {
