@@ -8,7 +8,7 @@ export const BlogBlock: React.FC<BlogBlockProps> = (props) => {
   return (
     <div className="my-16">
       <section className="bg-white dark:bg-gray-900">
-        <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
+        <div className="container py-8 sm:py-16">
           <div className="mx-auto max-w-screen-sm text-center">
             <h2 className="mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
               Our Blog

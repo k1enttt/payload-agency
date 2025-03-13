@@ -11,7 +11,7 @@ export const CallToActionBlock: React.FC<CTABlockProps> = (props) => {
       <Heading />
       {/* Image and Text */}
       <section className="bg-white dark:bg-gray-900">
-        <div className="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
+        <div className="gap-8 items-center py-8 xl:gap-16 md:grid md:grid-cols-2 sm:py-16">
           <Image
             className="w-full dark:hidden"
             src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/cta/cta-dashboard-mockup.svg"
@@ -58,7 +58,7 @@ export const CallToActionBlock: React.FC<CTABlockProps> = (props) => {
       </section>
       {/* Text and Image */}
       <section className="bg-white dark:bg-gray-900">
-        <div className="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
+        <div className="gap-8 items-center py-8 xl:gap-16 md:grid md:grid-cols-2 sm:py-16">
           <div className="mt-4 md:mt-0">
             <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
               Let&apos;s create more tools and ideas that brings us together.

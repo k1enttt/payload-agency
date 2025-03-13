@@ -6,7 +6,7 @@ export const ContactBlock: React.FC<ContactBlockProps> = (props) => {
   return (
     <div className="my-16">
       <section className="bg-white dark:bg-gray-900">
-        <div className="max-w-screen-xl px-4 py-8 mx-auto lg:px-6 sm:py-16 lg:py-24">
+        <div className="container py-8 sm:py-16 lg:py-24">
           <div className="grid grid-cols-1 gap-6 text-center sm:gap-16 sm:grid-cols-2 lg:grid-cols-3">
             <div>
               <div className="inline-flex items-center justify-center w-16 h-16 mx-auto text-gray-500 bg-gray-100 rounded-lg dark:bg-gray-800 dark:text-white">
