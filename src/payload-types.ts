@@ -200,6 +200,8 @@ export interface Page {
     | CustomerBlock
     | TestimonialsBlock
     | CallToActionBlock
+    | TeamBlock
+    | ContactBlock
   )[];
   meta?: {
     title?: string | null;
@@ -863,6 +865,46 @@ export interface CallToActionBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TeamBlock".
+ */
+export interface TeamBlock {
+  title?: string | null;
+  subtitle?: string | null;
+  members?:
+    | {
+        avatar: number | Media;
+        name: string;
+        role: string;
+        description?: string | null;
+        facebook?: string | null;
+        linkedin?: string | null;
+        github?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'teamBlock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ContactBlock".
+ */
+export interface ContactBlock {
+  email?: string | null;
+  addresses?:
+    | {
+        officeName: string;
+        address: string;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'contact';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -1155,6 +1197,8 @@ export interface PagesSelect<T extends boolean = true> {
         customerBlock?: T | CustomerBlockSelect<T>;
         testimonialsBlock?: T | TestimonialsBlockSelect<T>;
         cta?: T | CallToActionBlockSelect<T>;
+        teamBlock?: T | TeamBlockSelect<T>;
+        contact?: T | ContactBlockSelect<T>;
       };
   meta?:
     | T
@@ -1329,6 +1373,44 @@ export interface CallToActionBlockSelect<T extends boolean = true> {
                   };
               id?: T;
             };
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TeamBlock_select".
+ */
+export interface TeamBlockSelect<T extends boolean = true> {
+  title?: T;
+  subtitle?: T;
+  members?:
+    | T
+    | {
+        avatar?: T;
+        name?: T;
+        role?: T;
+        description?: T;
+        facebook?: T;
+        linkedin?: T;
+        github?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ContactBlock_select".
+ */
+export interface ContactBlockSelect<T extends boolean = true> {
+  email?: T;
+  addresses?:
+    | T
+    | {
+        officeName?: T;
+        address?: T;
         id?: T;
       };
   id?: T;

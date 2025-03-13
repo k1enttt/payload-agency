@@ -24,6 +24,8 @@ import { GalleryContent } from '@/blocks/GalleryContent/config'
 import { SocialProof } from '@/blocks/SocialProof/config'
 import { CustomerBlock } from '@/blocks/CustomerBlock/config'
 import { TestimonialsBlock } from '@/blocks/TestimonialsBlock/config'
+import { TeamBlock } from '@/blocks/TeamBlock/config'
+import { Contact } from '@/blocks/Contact/config'
 
 export const Pages: CollectionConfig<'pages'> = {
   slug: 'pages',
@@ -89,6 +91,8 @@ export const Pages: CollectionConfig<'pages'> = {
                 CustomerBlock,
                 TestimonialsBlock,
                 CallToAction,
+                TeamBlock,
+                Contact,
               ],
               required: true,
               admin: {

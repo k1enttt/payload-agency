@@ -13,6 +13,7 @@ import { CustomerBlock } from './CustomerBlock/Component'
 import { TestimonialsBlock } from './TestimonialsBlock/Component'
 import { CallToActionBlock } from './CallToAction/Component'
 import { TeamBlock } from './TeamBlock/Component'
+import { ContactBlock } from './Contact/Component'
 
 const blockComponents = {
   archive: ArchiveBlock,
@@ -25,6 +26,7 @@ const blockComponents = {
   testimonialsBlock: TestimonialsBlock,
   cta: CallToActionBlock,
   teamBlock: TeamBlock,
+  contact: ContactBlock,
 }
 
 export const RenderBlocks: React.FC<{
