@@ -12,6 +12,7 @@ import { SocialProofBlock } from './SocialProof/Component'
 import { CustomerBlock } from './CustomerBlock/Component'
 import { TestimonialsBlock } from './TestimonialsBlock/Component'
 import { CallToActionBlock } from './CallToAction/Component'
+import { TeamBlock } from './TeamBlock/Component'
 
 const blockComponents = {
   archive: ArchiveBlock,
@@ -23,6 +24,7 @@ const blockComponents = {
   customerBlock: CustomerBlock,
   testimonialsBlock: TestimonialsBlock,
   cta: CallToActionBlock,
+  teamBlock: TeamBlock,
 }
 
 export const RenderBlocks: React.FC<{
