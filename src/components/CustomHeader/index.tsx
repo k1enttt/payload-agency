@@ -1,10 +1,33 @@
+'use client'
 import Image from 'next/image'
 import ThemeModeButton from '../ThemeModeButton'
+import { useEffect, useRef, useState } from 'react'
 
 const CustomHeader = () => {
-  // TODO: Làm header sticky và chuyển thành màu trắng khi màn hình bắt đầu scrolled
+  const [isScrolled, setIsScrolled] = useState<boolean>(false)
+  const headerRef = useRef<HTMLDivElement>(null)
+  const textColorStyle = isScrolled ? 'bg-white text-black' : 'bg-transparent text-white'
+  const linkColorStyle = isScrolled ? 'hover:text-black' : 'hover:text-white'
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (headerRef.current) {
+        if (window.scrollY > 0) {
+          setIsScrolled(true)
+        } else {
+          setIsScrolled(false)
+        }
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+
   return (
-    <nav className="bg-transparent py-2.5">
+    <nav ref={headerRef} className={`${textColorStyle} py-2.5`}>
       <div className="container flex flex-wrap justify-between items-center">
         {/* LOGO */}
         <a href="https://flowbite.com" className="flex items-center">
@@ -15,9 +38,7 @@ const CustomHeader = () => {
             className="mr-3 h-6 sm:h-9"
             alt="Flowbite Logo"
           />
-          <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
-            Flowbite
-          </span>
+          <span className="self-center text-xl font-semibold whitespace-nowrap">Flowbite</span>
         </a>
         {/* RIGHT ACTION BUTTON */}
         <div className="flex items-center lg:order-2">
@@ -26,7 +47,7 @@ const CustomHeader = () => {
           </div>
           <a
             href="#"
-            className="text-white bg-primary-700 hover:bg-blue-500 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
+            className="bg-primary-700 hover:bg-blue-500 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
           >
             View pages
           </a>
@@ -73,7 +94,7 @@ const CustomHeader = () => {
             <li>
               <a
                 href="#"
-                className="block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white"
+                className={`block py-2 pr-4 pl-3 ${isScrolled ? 'text-black' : 'text-white'} rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 ${linkColorStyle}`}
                 aria-current="page"
               >
                 Home
@@ -82,7 +103,7 @@ const CustomHeader = () => {
             <li>
               <a
                 href="#"
-                className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+                className={`block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 dark:hover:bg-gray-700 lg:dark:hover:bg-transparent dark:border-gray-700 ${linkColorStyle}`}
               >
                 Company
               </a>
@@ -90,7 +111,7 @@ const CustomHeader = () => {
             <li>
               <a
                 href="#"
-                className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+                className={`block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 dark:hover:bg-gray-700 lg:dark:hover:bg-transparent dark:border-gray-700 ${linkColorStyle}`}
               >
                 Marketplace
               </a>
@@ -98,7 +119,7 @@ const CustomHeader = () => {
             <li>
               <a
                 href="#"
-                className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+                className={`block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 dark:hover:bg-gray-700 lg:dark:hover:bg-transparent dark:border-gray-700 ${linkColorStyle}`}
               >
                 Features
               </a>
@@ -106,7 +127,7 @@ const CustomHeader = () => {
             <li>
               <a
                 href="#"
-                className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+                className={`block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 dark:hover:bg-gray-700 lg:dark:hover:bg-transparent dark:border-gray-700 ${linkColorStyle}`}
               >
                 Team
               </a>
@@ -114,7 +135,7 @@ const CustomHeader = () => {
             <li>
               <a
                 href="#"
-                className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+                className={`block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 dark:hover:bg-gray-700 lg:dark:hover:bg-transparent dark:border-gray-700 ${linkColorStyle}`}
               >
                 Contact
               </a>

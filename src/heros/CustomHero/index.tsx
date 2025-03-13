@@ -23,8 +23,8 @@ export const CustomHero: React.FC<CustomHeroType> = ({ richText }) => {
 
   return (
     <div className="relative -mt-[7.75rem] text-white" data-theme="dark">
-      <section className="bg-[url('https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/coast-house-view.jpg')] bg-no-repeat bg-cover bg-center bg-gray-700 bg-blend-multiply h-screen flex items-center justify-center">
-        <div className="relative container py-8 text-white lg:py-16 z-1">
+      <section className="bg-[url('https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/coast-house-view.jpg')] bg-no-repeat bg-cover bg-center bg-gray-700 bg-blend-multiply">
+        <div className="relative container text-white py-16 lg:py-28 z-1">
           <div className="mb-6 max-w-screen-lg lg:mb-0">
             <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl lg:text-6xl">
               We invest in the world’s potential
