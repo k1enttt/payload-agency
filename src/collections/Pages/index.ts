@@ -26,6 +26,7 @@ import { CustomerBlock } from '@/blocks/CustomerBlock/config'
 import { TestimonialsBlock } from '@/blocks/TestimonialsBlock/config'
 import { TeamBlock } from '@/blocks/TeamBlock/config'
 import { Contact } from '@/blocks/Contact/config'
+import { BlogBlock } from '@/blocks/BlogBlock/config'
 
 export const Pages: CollectionConfig<'pages'> = {
   slug: 'pages',
@@ -93,6 +94,7 @@ export const Pages: CollectionConfig<'pages'> = {
                 CallToAction,
                 TeamBlock,
                 Contact,
+                BlogBlock,
               ],
               required: true,
               admin: {

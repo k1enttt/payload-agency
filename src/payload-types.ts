@@ -202,6 +202,7 @@ export interface Page {
     | CallToActionBlock
     | TeamBlock
     | ContactBlock
+    | BlogBlock
   )[];
   meta?: {
     title?: string | null;
@@ -905,6 +906,31 @@ export interface ContactBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BlogBlock".
+ */
+export interface BlogBlock {
+  title?: string | null;
+  subtitle?: string | null;
+  mainBlog?: {
+    image?: (number | null) | Media;
+    title?: string | null;
+    shortDescription?: string | null;
+    link?: string | null;
+  };
+  blogs?:
+    | {
+        title: string;
+        shortDescription?: string | null;
+        link: string;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'blogBlock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -1199,6 +1225,7 @@ export interface PagesSelect<T extends boolean = true> {
         cta?: T | CallToActionBlockSelect<T>;
         teamBlock?: T | TeamBlockSelect<T>;
         contact?: T | ContactBlockSelect<T>;
+        blogBlock?: T | BlogBlockSelect<T>;
       };
   meta?:
     | T
@@ -1411,6 +1438,32 @@ export interface ContactBlockSelect<T extends boolean = true> {
     | {
         officeName?: T;
         address?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BlogBlock_select".
+ */
+export interface BlogBlockSelect<T extends boolean = true> {
+  title?: T;
+  subtitle?: T;
+  mainBlog?:
+    | T
+    | {
+        image?: T;
+        title?: T;
+        shortDescription?: T;
+        link?: T;
+      };
+  blogs?:
+    | T
+    | {
+        title?: T;
+        shortDescription?: T;
+        link?: T;
         id?: T;
       };
   id?: T;
