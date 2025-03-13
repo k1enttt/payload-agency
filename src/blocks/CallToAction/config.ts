@@ -14,7 +14,11 @@ export const CallToAction: Block = {
   interfaceName: 'CallToActionBlock',
   fields: [
     {
-      name: 'richText',
+      name: 'title',
+      type: 'text',
+    },
+    {
+      name: 'subtitle',
       type: 'richText',
       editor: lexicalEditor({
         features: ({ rootFeatures }) => {
@@ -28,12 +32,60 @@ export const CallToAction: Block = {
       }),
       label: false,
     },
-    linkGroup({
-      appearances: ['default', 'outline'],
-      overrides: {
-        maxRows: 2,
-      },
-    }),
+    {
+      name: 'ctaList',
+      type: 'array',
+      fields: [
+        {
+          name: 'image',
+          type: 'upload',
+          relationTo: 'media',
+        },
+        {
+          name: 'headingText',
+          type: 'text',
+        },
+        {
+          name: 'demoLink',
+          type: 'text',
+        },
+        {
+          name: 'description',
+          type: 'text',
+        },
+        {
+          name: 'techStack',
+          type: 'array',
+          fields: [
+            {
+              name: 'techLogo',
+              type: 'upload',
+              relationTo: 'media',
+            },
+          ],
+        },
+        {
+          name: 'layout',
+          type: 'select',
+          options: [
+            {
+              label: 'Text and Image',
+              value: 'text-image',
+            },
+            {
+              label: 'Image and Text',
+              value: 'image-text',
+            },
+          ],
+        },
+        linkGroup({
+          appearances: ['default', 'outline'],
+          overrides: {
+            maxRows: 2,
+          },
+        }),
+      ],
+    },
   ],
   labels: {
     plural: 'Calls to Action',

@@ -3,23 +3,26 @@ import React, { Fragment } from 'react'
 import type { Page } from '@/payload-types'
 
 import { ArchiveBlock } from '@/blocks/ArchiveBlock/Component'
-import { CallToActionBlock } from '@/blocks/CallToAction/Component'
+// import { CallToActionBlock } from '@/blocks/CallToAction/Component'
 import { ContentBlock } from '@/blocks/Content/Component'
 import { FormBlock } from '@/blocks/Form/Component'
 import { MediaBlock } from '@/blocks/MediaBlock/Component'
 import { GalleryContentBLock } from './GalleryContent/Component'
 import { SocialProofBlock } from './SocialProof/Component'
 import { CustomerBlock } from './CustomerBlock/Component'
+import { TestimonialsBlock } from './TestimonialsBlock/Component'
+import { CallToActionBlock } from './CallToAction/Component'
 
 const blockComponents = {
   archive: ArchiveBlock,
   content: ContentBlock,
-  cta: CallToActionBlock,
   formBlock: FormBlock,
   mediaBlock: MediaBlock,
   galleryContent: GalleryContentBLock,
   socialProof: SocialProofBlock,
   customerBlock: CustomerBlock,
+  testimonialsBlock: TestimonialsBlock,
+  cta: CallToActionBlock,
 }
 
 export const RenderBlocks: React.FC<{

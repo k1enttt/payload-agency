@@ -23,6 +23,7 @@ import {
 import { GalleryContent } from '@/blocks/GalleryContent/config'
 import { SocialProof } from '@/blocks/SocialProof/config'
 import { CustomerBlock } from '@/blocks/CustomerBlock/config'
+import { TestimonialsBlock } from '@/blocks/TestimonialsBlock/config'
 
 export const Pages: CollectionConfig<'pages'> = {
   slug: 'pages',
@@ -79,7 +80,6 @@ export const Pages: CollectionConfig<'pages'> = {
               name: 'layout',
               type: 'blocks',
               blocks: [
-                CallToAction,
                 Content,
                 MediaBlock,
                 Archive,
@@ -87,6 +87,8 @@ export const Pages: CollectionConfig<'pages'> = {
                 GalleryContent,
                 SocialProof,
                 CustomerBlock,
+                TestimonialsBlock,
+                CallToAction,
               ],
               required: true,
               admin: {
