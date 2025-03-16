@@ -9,46 +9,41 @@ const CustomHeader = () => {
   const textColorStyle = isScrolled ? 'bg-white text-black' : 'bg-transparent text-white'
   const linkColorStyle = isScrolled ? 'hover:text-black' : 'hover:text-white'
 
-  const navRef = useRef<HTMLDivElement>(null)
   const [isNavOpen, setIsNavOpen] = useState(false)
 
   const toggleNav = () => {
-    setIsNavOpen(!isNavOpen)
-    if (navRef.current) {
-      if (isNavOpen && window.innerWidth < 1024) {
-        navRef.current.classList.add('hidden')
-        navRef.current.classList.remove('absolute', 'top-14', 'left-0', 'bg-black/80')
-      } else {
-        navRef.current.classList.remove('hidden')
-        navRef.current.classList.add('absolute', 'top-14', 'left-0', 'bg-black/80')
-      }
+    if (isNavOpen) {
+      setIsNavOpen(false)
+    } else {
+      setIsNavOpen(true)
     }
   }
 
   useEffect(() => {
-    let throttleTimeout: NodeJS.Timeout | null = null
-
     const handleScroll = () => {
-      if (throttleTimeout === null) {
-        throttleTimeout = setTimeout(() => {
-          if (headerRef.current) {
-            if (window.scrollY > 0) {
-              setIsScrolled(true)
-            } else {
-              setIsScrolled(false)
-            }
-          }
-          throttleTimeout = null
-        }, 50)
+      if (headerRef.current) {
+        if (window.scrollY > 0) {
+          setIsScrolled(true)
+        } else {
+          setIsScrolled(false)
+        }
       }
     }
 
     window.addEventListener('scroll', handleScroll)
-    return () => {
-      if (throttleTimeout) {
-        clearTimeout(throttleTimeout)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 1024) {
+        setIsNavOpen(false)
       }
-      window.removeEventListener('scroll', handleScroll)
+    }
+
+    window.addEventListener('resize', handleResize)
+    return () => {
+      window.removeEventListener('resize', handleResize)
     }
   }, [])
 
@@ -114,15 +109,14 @@ const CustomHeader = () => {
         </div>
         {/* NAVIGATIONS */}
         <div
-          className="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1"
+          className={`justify-between items-center w-full lg:flex lg:w-auto lg:order-1 ${isNavOpen ? 'absolute top-14 left-0 bg-black/80' : 'hidden'}`}
           id="mobile-menu-2"
-          ref={navRef}
         >
           <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
             <li>
               <a
                 href="#"
-                className={`block py-2 pr-4 pl-3 ${isScrolled ? 'text-black' : 'text-white'} rounded bg-primary/50 lg:bg-transparent lg:text-primary lg:p-0 ${linkColorStyle}`}
+                className={`block py-2 pr-4 pl-3 ${isScrolled ? 'lg:text-black' : 'lg:text-white'} text-white rounded bg-primary/50 lg:bg-transparent lg:text-primary lg:p-0 ${linkColorStyle}`}
                 aria-current="page"
               >
                 Home
