@@ -9,19 +9,45 @@ const CustomHeader = () => {
   const textColorStyle = isScrolled ? 'bg-white text-black' : 'bg-transparent text-white'
   const linkColorStyle = isScrolled ? 'hover:text-black' : 'hover:text-white'
 
+  const navRef = useRef<HTMLDivElement>(null)
+  const [isNavOpen, setIsNavOpen] = useState(false)
+
+  const toggleNav = () => {
+    setIsNavOpen(!isNavOpen)
+    if (navRef.current) {
+      if (isNavOpen && window.innerWidth < 1024) {
+        navRef.current.classList.add('hidden')
+        navRef.current.classList.remove('absolute', 'top-14', 'left-0', 'bg-black/80')
+      } else {
+        navRef.current.classList.remove('hidden')
+        navRef.current.classList.add('absolute', 'top-14', 'left-0', 'bg-black/80')
+      }
+    }
+  }
+
   useEffect(() => {
+    let throttleTimeout: NodeJS.Timeout | null = null
+
     const handleScroll = () => {
-      if (headerRef.current) {
-        if (window.scrollY > 0) {
-          setIsScrolled(true)
-        } else {
-          setIsScrolled(false)
-        }
+      if (throttleTimeout === null) {
+        throttleTimeout = setTimeout(() => {
+          if (headerRef.current) {
+            if (window.scrollY > 0) {
+              setIsScrolled(true)
+            } else {
+              setIsScrolled(false)
+            }
+          }
+          throttleTimeout = null
+        }, 50)
       }
     }
 
     window.addEventListener('scroll', handleScroll)
     return () => {
+      if (throttleTimeout) {
+        clearTimeout(throttleTimeout)
+      }
       window.removeEventListener('scroll', handleScroll)
     }
   }, [])
@@ -35,7 +61,7 @@ const CustomHeader = () => {
             width={32}
             height={32}
             src="https://flowbite.com/docs/images/logo.svg"
-            className="mr-3 h-6 sm:h-9"
+            className="mr-3 h-6 sm:h-9 w-auto"
             alt="Flowbite Logo"
           />
           <span className="self-center text-xl font-semibold whitespace-nowrap">Flowbite</span>
@@ -57,6 +83,7 @@ const CustomHeader = () => {
             className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
             aria-controls="mobile-menu-2"
             aria-expanded="false"
+            onClick={toggleNav}
           >
             <span className="sr-only">Open main menu</span>
             <svg
@@ -89,12 +116,13 @@ const CustomHeader = () => {
         <div
           className="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1"
           id="mobile-menu-2"
+          ref={navRef}
         >
           <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
             <li>
               <a
                 href="#"
-                className={`block py-2 pr-4 pl-3 ${isScrolled ? 'text-black' : 'text-white'} rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 ${linkColorStyle}`}
+                className={`block py-2 pr-4 pl-3 ${isScrolled ? 'text-black' : 'text-white'} rounded bg-primary/50 lg:bg-transparent lg:text-primary lg:p-0 ${linkColorStyle}`}
                 aria-current="page"
               >
                 Home

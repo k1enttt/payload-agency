@@ -4,7 +4,7 @@ import type { GalleryContentBlock as GalleryContentBlockProps } from '@/payload-
 
 import Image from 'next/image'
 
-export const GalleryContentBLock: React.FC<GalleryContentBlockProps> = (props) => {
+export const GalleryContentBLock: React.FC<GalleryContentBlockProps> = (_) => {
   return (
     <div className="my-16">
       <section className="bg-white dark:bg-gray-900">
@@ -32,6 +32,7 @@ export const GalleryContentBLock: React.FC<GalleryContentBlockProps> = (props) =
                 className="rounded-lg object-cover"
                 src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/content-gallery-2.png"
                 alt="content gallery 2"
+                sizes="(max-width: 768px) 320px, 160px"
                 fill
               />
             </div>
@@ -41,6 +42,7 @@ export const GalleryContentBLock: React.FC<GalleryContentBlockProps> = (props) =
                 className="rounded-lg object-cover"
                 src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/content-gallery-3.png"
                 alt="content gallery 3"
+                sizes="(max-width: 768px) 320px, 160px"
                 fill
               />
             </div>
@@ -50,6 +52,7 @@ export const GalleryContentBLock: React.FC<GalleryContentBlockProps> = (props) =
                 className="rounded-lg object-cover"
                 src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/content-gallery-4.png"
                 alt="content gallery 4"
+                sizes="(max-width: 768px) 320px, 160px"
                 fill
               />
             </div>
@@ -69,6 +72,7 @@ export const GalleryContentBLock: React.FC<GalleryContentBlockProps> = (props) =
                 className=" rounded-lg object-cover"
                 src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/content-gallery-6.png"
                 alt="content gallery 6"
+                sizes="(max-width: 768px) 320px, 160px"
                 fill
               />
             </div>

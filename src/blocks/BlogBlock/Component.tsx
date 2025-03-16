@@ -4,7 +4,7 @@ import type { BlogBlock as BlogBlockProps } from '@/payload-types'
 
 import Image from 'next/image'
 
-export const BlogBlock: React.FC<BlogBlockProps> = (props) => {
+export const BlogBlock: React.FC<BlogBlockProps> = (_) => {
   return (
     <div className="my-16">
       <section className="bg-white dark:bg-gray-900">
@@ -22,10 +22,10 @@ export const BlogBlock: React.FC<BlogBlockProps> = (props) => {
             <article>
               <a href="#">
                 <Image
-                  className="mb-5 rounded-lg"
+                  className="mb-5 rounded-lg h-auto"
                   src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/blog/google-hq.png"
                   alt="blog image"
-                  width={400}
+                  width={420}
                   height={200}
                 />
               </a>
