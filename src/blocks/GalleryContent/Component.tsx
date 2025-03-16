@@ -17,63 +17,59 @@ export const GalleryContentBLock: React.FC<GalleryContentBlockProps> = (props) =
             enough to be simple and quick, but big enough to deliver the scope you want at the pace
             you need.
           </p>
-          <div className="gap-4 mt-8 sm:grid sm:grid-cols-4 sm:mt-12 h-[420px]">
-            <div className="relative col-span-2 mb-4 sm:mb-0">
+          <div className="gap-4 mt-8 sm:grid sm:grid-cols-4 sm:mt-12 lg:h-[500px] h-[300px]">
+            <div className="relative col-span-2 mb-4 sm:mb-0 h-36 sm:h-full">
               <Image
-                className="rounded-lg"
+                className="rounded-lg object-cover"
                 src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/content-gallery-1.png"
                 alt="content gallery 1"
+                sizes="(max-width: 768px) 650px, 320px"
                 fill
-                objectFit="cover"
               />
             </div>
             <div className="relative hidden col-span-1 sm:block">
               <Image
-                className="rounded-lg"
+                className="rounded-lg object-cover"
                 src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/content-gallery-2.png"
                 alt="content gallery 2"
                 fill
-                objectFit="cover"
               />
             </div>
 
             <div className="relative hidden col-span-1 sm:block ">
               <Image
-                className="rounded-lg"
+                className="rounded-lg object-cover"
                 src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/content-gallery-3.png"
                 alt="content gallery 3"
                 fill
-                objectFit="cover"
               />
             </div>
 
             <div className="relative hidden col-span-1 sm:block ">
               <Image
-                className="rounded-lg"
+                className="rounded-lg object-cover"
                 src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/content-gallery-4.png"
                 alt="content gallery 4"
                 fill
-                objectFit="cover"
               />
             </div>
 
-            <div className="relative col-span-2 ">
+            <div className="relative col-span-2 h-36 sm:h-full">
               <Image
-                className="rounded-lg"
+                className="rounded-lg object-cover"
                 src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/content-gallery-5.png"
                 alt="content gallery 5"
+                sizes="(max-width: 768px) 650px, 320px"
                 fill
-                objectFit="cover"
               />
             </div>
 
             <div className="relative hidden col-span-1 sm:block">
               <Image
-                className=" rounded-lg"
+                className=" rounded-lg object-cover"
                 src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/content-gallery-6.png"
                 alt="content gallery 6"
                 fill
-                objectFit="cover"
               />
             </div>
           </div>
